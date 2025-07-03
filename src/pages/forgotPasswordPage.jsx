@@ -9,7 +9,7 @@ const ForgotPasswordPage = ({ showModal, navigateTo }) => {
   const [localError, setLocalError] = useState(null); // Pour les erreurs de validation côté client
 
   // URL de base de votre API backend
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
   const handleSubmit = async (e) => {
     e.preventDefault();

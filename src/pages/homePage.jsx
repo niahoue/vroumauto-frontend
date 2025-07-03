@@ -22,7 +22,7 @@ const HomePage = ({ navigateTo, showModal }) => {
   const [pauseRentScroll, setPauseRentScroll] = useState(false);
   const [pauseTestimonialScroll, setPauseTestimonialScroll] = useState(false);
 
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
   // Données fictives pour les témoignages
   const testimonials = [

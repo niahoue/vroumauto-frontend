@@ -12,7 +12,7 @@ const AuthPage = ({ navigateTo, showModal }) => {
   const [username, setUsername] = useState(''); // Si votre inscription nécessite un nom d'utilisateur
   const [loading, setLoading] = useState(false);
 
-  const API_BASE_URL = 'http://localhost:5000/api'; // Assurez-vous que c'est la bonne URL de votre API
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'; // Assurez-vous que c'est la bonne URL de votre API
 
   const handleSubmit = async (e) => {
     e.preventDefault();

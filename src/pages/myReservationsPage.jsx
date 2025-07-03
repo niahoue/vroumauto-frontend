@@ -8,7 +8,7 @@ const MyReservationsPage = ({ navigateTo, showModal, user }) => {
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('upcoming-rentals'); // 'upcoming-rentals', 'past-rentals', 'test-drives'
 
-  const API_BASE_URL = 'http://localhost:5000/api'; // Assurez-vous que c'est le bon port
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api'; // Assurez-vous que c'est le bon port
 
   // Fonction pour récupérer les réservations et demandes d'essai de l'utilisateur
   // Utilisant useCallback pour éviter les recréations inutiles et les boucles infinies dans useEffect

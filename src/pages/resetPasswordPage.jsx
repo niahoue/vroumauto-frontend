@@ -10,7 +10,7 @@ const ResetPasswordPage = ({ showModal, navigateTo }) => {
   const [token, setToken] = useState(null); // Le token de réinitialisation
   const [localError, setLocalError] = useState(null); // Pour les erreurs de validation côté client
 
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
   // Récupérer le token de l'URL au chargement du composant
   useEffect(() => {
