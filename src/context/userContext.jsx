@@ -2,7 +2,6 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react';
 import { makeAuthenticatedRequest } from '../utils/api'; // Votre utilitaire pour les appels API
 
-// Créez le contexte
 export const UserContext = createContext(null);
 
 // Créez le fournisseur de contexte
@@ -21,7 +20,6 @@ export const UserProvider = ({ children, showModal, navigateTo }) => {
     try {
       const data = await makeAuthenticatedRequest('/auth/me', 'GET', null, token);
       if (data.success) {
-        // CORRECTION ICI: Le backend renvoie `data.user`, pas `data.data`
         setUser(data.user); // data.user doit contenir l'objet utilisateur avec les favoris populés
       } else {
         console.error('Échec de la récupération des données utilisateur:', data.msg);
