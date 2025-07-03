@@ -1,21 +1,15 @@
 // src/utils/api.js
 
-// Définissez l'URL de base de l'API en utilisant une variable d'environnement.
-// En développement, elle sera 'http://localhost:5000'.
-// En production, elle sera l'URL de votre API déployée.
-// 'VITE_APP_' est le préfixe nécessaire pour que Vite expose la variable au code client.
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'; // Fallback pour le développement local si non défini
+// Définissez l'URL de base de l'API
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
+console.log('API_BASE_URL:', API_BASE_URL); // Pour debug
 
 /**
  * Fonction utilitaire pour effectuer des requêtes API authentifiées.
- * @param {string} url - L'URL de l'API (peut être relative, ex: '/auth/me' ou absolue si nécessaire).
- * @param {string} method - La méthode HTTP (GET, POST, PUT, DELETE).
- * @param {Object} data - Les données à envoyer dans le corps de la requête (pour POST/PUT).
- * @param {string} token - Le token d'authentification de l'utilisateur.
- * @returns {Promise<Object>} La réponse JSON de l'API.
  */
 export const makeAuthenticatedRequest = async (path, method = 'GET', data = null, token = null) => {
-  // Construire l'URL complète en préfixant avec API_BASE_URL si le chemin est relatif
+  // Construire l'URL complète
   const fullUrl = path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
 
   const headers = {
@@ -29,6 +23,7 @@ export const makeAuthenticatedRequest = async (path, method = 'GET', data = null
   const config = {
     method,
     headers,
+    credentials: 'include', // Important pour CORS avec credentials
   };
 
   if (data) {
@@ -36,18 +31,40 @@ export const makeAuthenticatedRequest = async (path, method = 'GET', data = null
   }
 
   try {
-    const response = await fetch(fullUrl, config); // Utilise fullUrl ici
+    const response = await fetch(fullUrl, config);
+    
+    // Vérifier si c'est une erreur CORS
+    if (!response.ok && response.status === 0) {
+      throw new Error('Erreur CORS - Vérifiez que votre API est déployée et accessible');
+    }
+
     const result = await response.json();
 
     if (!response.ok) {
-      const errorMessage = result.msg || result.error || 'Erreur réseau inconnue';
+      const errorMessage = result.msg || result.error || `Erreur HTTP ${response.status}`;
       throw new Error(errorMessage);
     }
 
     return result;
   } catch (error) {
     console.error(`Erreur lors de la requête ${method} ${fullUrl}:`, error);
-    // Relance l'erreur pour qu'elle puisse être gérée par les composants qui appellent cette fonction
+    
+    // Améliorer les messages d'erreur pour CORS
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      throw new Error('Impossible de contacter l\'API. Vérifiez votre connexion et que l\'API est déployée.');
+    }
+    
+    throw error;
+  }
+};
+
+// Fonction spécifique pour les requêtes de véhicules
+export const fetchVehicles = async (type, limit = 8) => {
+  try {
+    const response = await makeAuthenticatedRequest(`/api/vehicles?type=${type}&limit=${limit}&sort=-createdAt`);
+    return response;
+  } catch (error) {
+    console.error(`Erreur réseau ou serveur pour véhicules à ${type === 'rent' ? 'louer' : 'vendre'}:`, error);
     throw error;
   }
 };
