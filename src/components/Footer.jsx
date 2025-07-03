@@ -13,7 +13,7 @@ const Footer = ({ navigateTo }) => {
         <div className="flex justify-center space-x-4 mt-4">
           <a
             href="#"
-            onClick={() => navigateTo('politique-confidentialite')} // Navigue vers la page de politique de confidentialité
+            onClick={() => navigateTo('privacy-policy')} // Navigue vers la page de politique de confidentialité
             className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
           >
             Politique de Confidentialité
@@ -21,7 +21,7 @@ const Footer = ({ navigateTo }) => {
           <span className="text-gray-600">|</span>
           <a
             href="#"
-            onClick={() => navigateTo('conditions-generales')} // Navigue vers la page des conditions générales
+            onClick={() => navigateTo('terms-and-conditions')} // Navigue vers la page des conditions générales
             className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
           >
             Conditions Générales
