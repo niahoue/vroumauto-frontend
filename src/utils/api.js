@@ -4,7 +4,7 @@
 // En développement, elle sera 'http://localhost:5000'.
 // En production, elle sera l'URL de votre API déployée.
 // 'VITE_APP_' est le préfixe nécessaire pour que Vite expose la variable au code client.
-const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:5000'; // Fallback pour le développement local si non défini
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'; // Fallback pour le développement local si non défini
 
 /**
  * Fonction utilitaire pour effectuer des requêtes API authentifiées.
