@@ -1,6 +1,5 @@
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
-console.log(API_BASE_URL)
 /**
  * Fonction utilitaire pour effectuer des requêtes API authentifiées.
  * @param {string} url - L'URL de l'API (peut être relative, ex: '/auth/me' ou absolue si nécessaire).
