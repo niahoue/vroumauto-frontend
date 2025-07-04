@@ -1,31 +1,26 @@
-# User-agent: *
-# Permet à tous les robots d'explorer l'intégralité du site
+
 User-agent: *
 Allow: /
 
-# Disallow: /admin/
-# Disallow: /dashboard/
-# Disallow: /profile/
-# Disallow: /login/
-# Disallow: /register/
-# Disallow: /forgot-password/
-# Disallow: /reset-password/
-# Disallow: /reservation-form/
-# Disallow: /test-drive-scheduling/
-# Disallow: /favorites/
-# Disallow: /comparison/
-# Disallow: /api/ # N'autorise pas l'exploration des endpoints d'API
-
-# C'est un point crucial pour les Single Page Applications (SPA) comme React.
-# Si vous avez des routes côté client qui sont "privées" (nécessitent une connexion)
-# et que vous ne voulez pas que les moteurs de recherche les indexent,
-# vous pouvez les lister ici. Cependant, pour la plupart des SPA,
-# le contenu de ces routes n'est pas rendu sans JavaScript,
-# et les moteurs de recherche modernes gèrent bien le JavaScript.
-# Par défaut, Allow: / est souvent suffisant, car les pages nécessitant une authentification
-# ne sont de toute façon pas accessibles aux bots non authentifiés.
-# Si vous DISALLOW, assurez-vous de ne pas bloquer des ressources CSS/JS
-# nécessaires au rendu des pages que vous VOULEZ voir indexées.
-
-# Lien vers votre sitemap XML
 Sitemap: https://www.vroumauto.com/sitemap.xml
+
+# Disallow: /dashboard
+# Disallow: /manage-vehicles
+# Disallow: /add-vehicle
+# Disallow: /edit-vehicle
+# Disallow: /manage-users
+# Disallow: /edit-user
+# Disallow: /my-reservations
+# Disallow: /manage-reservations
+# Disallow: /manage-test-drives
+# Disallow: /profile
+# Disallow: /auth
+# Disallow: /forgot-password
+# Disallow: /reset-password
+# Disallow: /reservation-form
+# Disallow: /test-drive-scheduling
+# Disallow: /test-drive-confirmation
+# Disallow: /favorites
+# Disallow: /comparison
+
+

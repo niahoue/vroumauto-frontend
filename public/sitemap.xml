@@ -1,95 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- Page d'accueil -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ 
   <url>
-    <loc>https://www.vroumauto.com</loc>
-    <lastmod>2025-06-27</lastmod>
+    <loc>https://www.vroumauto.com/</loc>
+    <lastmod>2025-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Page d'achat de véhicules -->
   <url>
     <loc>https://www.vroumauto.com/buy-vehicles</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2025-07-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Page de location de véhicules -->
+ 
   <url>
     <loc>https://www.vroumauto.com/rent-vehicles</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2025-07-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Page À Propos -->
+  
   <url>
     <loc>https://www.vroumauto.com/about</loc>
-    <lastmod>2025-06-27</lastmod>
+    <lastmod>2025-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Page Contact -->
   <url>
     <loc>https://www.vroumauto.com/contact</loc>
-    <lastmod>2025-06-27</lastmod>
+    <lastmod>2025-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Page Connexion/Inscription -->
-  <url>
-    <loc>https://www.vroumauto.com/connexion</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Page Politique de Confidentialité -->
-  <url>
-    <loc>https://www.vroumauto.com/politique-confidentialite</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <!-- Page Conditions Générales -->
-  <url>
-    <loc>https://www.vroumauto.com/conditions-generales</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <!-- Exemple de Page de Détails de Véhicule (ajoutez-en d'autres dynamiquement si possible) -->
-  <!-- Cette page est un exemple. Vous devrez générer ces URL dynamiquement pour tous vos véhicules réels. -->
-  <url>
-    <loc>https://www.vroumauto.com/vehicule/exemple-id-de-vehicule</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Page des favoris (si elle a un contenu public sans connexion) -->
-  <!-- Si cette page nécessite une connexion pour voir du contenu, ne l'incluez pas dans le sitemap public. -->
+
   <url>
-    <loc>https://www.vroumauto.com/favoris</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.vroumauto.com/terms-and-conditions</loc>
+    <lastmod>2025-07-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-    <!-- Page de comparaison (si elle a un contenu public sans connexion) -->
-  <!-- Si cette page nécessite une connexion pour voir du contenu, ne l'incluez pas dans le sitemap public. -->
+  
   <url>
-    <loc>https://www.vroumauto.com/comparison</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.vroumauto.com/privacy-policy</loc>
+    <lastmod>2025-07-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 

@@ -12,7 +12,7 @@ const ContactPage = ({ showModal, navigateTo, initialValues }) => {
   const [loading, setLoading] = useState(false);
   const [localError, setLocalError] = useState(null);
 
-  const API_BASE_URL = 'api'; // Assurez-vous que c'est le bon port de votre backend
+  const API_BASE_URL =import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api'
 
   useEffect(() => {
     if (initialValues) {

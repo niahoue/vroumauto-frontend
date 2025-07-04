@@ -174,9 +174,20 @@ const HomePage = ({ navigateTo, showModal }) => {
     <div className="home-page flex flex-col flex-grow">
       {/* Hero Section - Doit être pleine largeur et toucher le header */}
       <section
-        className="relative w-screen left-1/2 -translate-x-1/2 bg-cover bg-center bg-no-repeat h-[400px] md:h-[500px] flex items-center justify-center text-white"
-        style={{ backgroundImage: "url('hero-image.png')" }}
+        className="relative w-screen left-1/2 -translate-x-1/2 h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden"
       >
+        {/* Balise video pour le fond */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/video.mp4" type="video/mp4" />
+          Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+
         {/* Overlay sombre pour la lisibilité du texte */}
         <div className="absolute inset-0 bg-black opacity-60"></div>
 
@@ -189,13 +200,13 @@ const HomePage = ({ navigateTo, showModal }) => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-scale-in">
             <button
-              onClick={() => navigateTo('buy-vehicles')}
+              onClick={() => navigateTo('buy')} 
               className="bg-white text-blue-600 hover:bg-blue-50 transition-colors duration-300 px-8 py-3 rounded-full text-lg font-semibold shadow-md transform hover:scale-105"
             >
               Acheter un véhicule
             </button>
             <button
-              onClick={() => navigateTo('rent-vehicles')}
+              onClick={() => navigateTo('rent')} 
               className="border-2 border-white text-white hover:bg-white hover:text-purple-600 transition-colors duration-300 px-8 py-3 rounded-full text-lg font-semibold shadow-md transform hover:scale-105"
             >
               Louer un véhicule
@@ -292,7 +303,7 @@ const HomePage = ({ navigateTo, showModal }) => {
           )}
           <div className="text-center mt-8">
             <button
-              onClick={() => navigateTo('buy-vehicles')}
+              onClick={() => navigateTo('buy')} 
               className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold shadow-md transform hover:scale-105"
             >
               Voir tous les véhicules à vendre
@@ -353,7 +364,7 @@ const HomePage = ({ navigateTo, showModal }) => {
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            navigateTo('reservation-form', { vehicle: vehicle });
+                            navigateTo('reservation-form', { vehicleData: vehicle }); // Passe 'vehicleData'
                           }}
                           className="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors duration-200 font-semibold"
                         >
@@ -386,11 +397,54 @@ const HomePage = ({ navigateTo, showModal }) => {
           )}
           <div className="text-center mt-8">
             <button
-              onClick={() => navigateTo('rent-vehicles')}
+              onClick={() => navigateTo('rent')} 
               className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors duration-300 text-lg font-semibold shadow-md transform hover:scale-105"
             >
               Voir tous les véhicules à louer
             </button>
+          </div>
+        </section>
+
+        {/* Nouvelle Section Pourquoi Choisir Vroum-Auto ? */}
+        <section className="bg-purple-50 p-8 rounded-xl shadow-lg mb-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Pourquoi Choisir Vroum-Auto ?</h2>
+          <div className="max-w-4xl mx-auto text-gray-700 text-lg leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-semibold text-purple-700 mb-3 flex items-center">
+                <svg className="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Un Large Choix de Véhicules
+              </h3>
+              <p className="mb-4">
+                Que vous cherchiez une berline élégante, un SUV robuste, une voiture économique ou un véhicule utilitaire, notre catalogue est constamment mis à jour avec une diversité de modèles pour l'achat et la location. Nous sélectionnons rigoureusement chaque véhicule pour vous garantir qualité et performance.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold text-purple-700 mb-3 flex items-center">
+                <svg className="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 1.343-2 3-2zM21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                Transparence et Confiance
+              </h3>
+              <p className="mb-4">
+                Chez Vroum-Auto, la transparence est notre priorité. Chaque véhicule est accompagné d'un historique clair et de toutes les informations nécessaires. Nos prix sont justes et sans frais cachés, vous assurant une transaction en toute sérénité.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold text-purple-700 mb-3 flex items-center">
+                <svg className="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857M17 20v-2c0-.134-.01-.267-.03-.4M20 18v.4M20 18H2v.4M2 18a3 3 0 013-3h10a3 3 0 013 3v2H2zM12 10a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                Service Client Dédié
+              </h3>
+              <p className="mb-4">
+                Notre équipe est à votre disposition pour vous guider à chaque étape. Que ce soit pour vous aider à choisir le véhicule idéal, à comprendre les options de financement ou à organiser un essai routier, nous sommes là pour répondre à toutes vos questions avec professionnalisme et courtoisie.
+              </p>
+            </div>
+            <div>
+              <h3 className="2xl font-semibold text-purple-700 mb-3 flex items-center">
+                <svg className="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                Facilité et Rapidité
+              </h3>
+              <p className="mb-4">
+                Nous avons optimisé nos processus d'achat et de location pour qu'ils soient aussi simples et rapides que possible. De la recherche en ligne à la livraison de votre véhicule, nous nous efforçons de minimiser les démarches administratives pour vous faire gagner du temps.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -450,10 +504,16 @@ const HomePage = ({ navigateTo, showModal }) => {
           <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">À Propos de Vroum-Auto</h2>
           <div className="max-w-3xl mx-auto text-center text-gray-700 text-lg leading-relaxed">
             <p className="mb-4">
-              Vroum-Auto est votre partenaire de confiance pour l'achat et la location de véhicules de qualité supérieure en Côte d'Ivoire. Nous offrons une large gamme de voitures de qualité, adaptées à tous les besoins et à tous les budgets.
+              Bienvenue chez Vroum-Auto, votre partenaire de confiance pour l'achat et la location de véhicules de qualité supérieure en Côte d'Ivoire. Fondée sur les principes de la transparence, de l'intégrité et de la satisfaction client, notre mission est de révolutionner votre expérience automobile.
+            </p>
+            <p className="mb-4">
+              Nous comprenons que l'acquisition ou la location d'un véhicule est une décision importante. C'est pourquoi nous nous engageons à vous offrir une sélection rigoureuse de voitures neuves et d'occasion, toutes inspectées et certifiées pour répondre aux plus hauts standards de sécurité et de performance. Que vous soyez un particulier à la recherche de la voiture familiale idéale, un professionnel ayant besoin d'un véhicule robuste pour vos activités, ou un touriste désirant explorer la Côte d'Ivoire en toute liberté, Vroum-Auto a la solution adaptée à vos besoins et à votre budget.
+            </p>
+            <p className="mb-4">
+              Notre équipe d'experts passionnés est à votre écoute pour vous conseiller et vous accompagner à chaque étape, de la sélection du véhicule à la finalisation des démarches administratives. Nous nous efforçons de rendre le processus simple, rapide et agréable, en vous garantissant une expérience sans tracas.
             </p>
             <p>
-              Notre mission est de rendre l'acquisition d'un véhicule simple, transparente et agréable. Faites confiance à notre expertise et à notre service client exceptionnel pour trouver le véhicule de vos rêves.
+              Faites confiance à Vroum-Auto pour trouver le véhicule de vos rêves et profitez d'un service client exceptionnel qui va au-delà de vos attentes. Votre satisfaction est notre plus grande récompense.
             </p>
             <button
               onClick={() => navigateTo('about')}

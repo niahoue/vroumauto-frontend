@@ -58,10 +58,10 @@ const Header = ({ navigateTo }) => { // onLogout n'est plus une prop directe, vi
     <header className="sticky top-0 w-full bg-white shadow-md z-50">
       <div className="container mx-auto flex justify-between items-center">
 
-        <div className="flex-shrink-0 flex items-center"> {/* Use flex and items-center to align logo and text */}
+        <div className="flex-shrink-0 flex items-center"> 
           <button onClick={() => handleNavigate('home')} className="flex items-center focus:outline-none">
-            <img src={logovr} alt="Vroum-Auto Logo" className="h-16 w-auto mr-2" /> {/* Adjusted height and added mr-2 */}
-            <span className="text-3xl font-extrabold text-blue-600">Vroum-Auto</span> {/* Added the app name */}
+            <img src={logovr} alt="Vroum-Auto Logo" className="h-16 w-auto mr-2" /> 
+            <span className="text-3xl font-extrabold text-blue-600">Vroum-Auto</span> 
           </button>
         </div>
 
